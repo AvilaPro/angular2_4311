@@ -1,0 +1,48 @@
+<h1>Registro de Usuario</h1>
+<form (ngSubmit)="onSubmit()" #formRegistro="ngForm" (click)="verInfo(formRegistro)">
+        <!-- <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="username" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div> -->
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Nombre Usuario</span>
+        <input id="usuario" type="text" class="form-control" placeholder="Nombre Usuario" [(ngModel)]="username"  required minlength="3" #usuario="ngModel" (click)="verInfo(usuario)" name="usuario" />
+    </div>
+    <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)" style="color: red;">
+        <div *ngIf="usuario.errors?.['required']">
+            El nombre de usuario es requerido
+        </div>
+        <div *ngIf="usuario.errors?.['minlength']">
+            El minimo de caracteres es 3.
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon2">Correo</span>
+        <input type="email" class="form-control" placeholder="Correo" aria-label="Correo"
+          aria-describedby="basic-addon2" [(ngModel)]="email"  #correo ="ngModel" name="correo"/>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">Telefono</span>
+        <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono"
+          aria-describedby="basic-addon3" [(ngModel)]="phone" #telefono ="ngModel" name="telefono"/>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon4">Password</span>
+        <input type="text" class="form-control" placeholder="Password" aria-label="Password"
+          aria-describedby="basic-addon4"  [(ngModel)]="pass" #clave="ngModel" name="clave"/>
+    </div>
+    <button type="submit" (click)="registrarUsuario()" [disabled]="!formRegistro.form.valid">Registrarse</button>
+</form>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 *ngIf="person.usuario !== ''">Bienvenido {{ person.usuario }}</h1>
+            <button (click)=irAHome()>ir a home</button>
+        </div>
+    </div>
+</div>
