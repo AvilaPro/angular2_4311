@@ -1,0 +1,62 @@
+<h1>Formulario Reactivo con FormGroup</h1>
+<h2>Nombre del accionista</h2>
+<form action="" method="get" id="datosAccionista">
+  <label for="nombre">Nombre</label>
+  <input type="text" name="nombre" id="nombre" [formControl]="nombre">
+  <button (click)="mostrarFormControl()">Verificar!!!</button>
+</form>
+<h2>Datos del Conyuge del accionista</h2>
+<form action="" [formGroup]="conyuge" id="datosDelConyuge">
+  <div>
+    <label for="nombreConyuge">Nombre del Conyuge</label>
+    <input type="text" id="nombreConyuge" formControlName="nombreConyuge">
+    <div *ngIf="!conyuge.controls.nombreConyuge.valid && (conyuge.controls.nombreConyuge.dirty || !conyuge.controls.nombreConyuge.untouched)">
+      <h4 style="color: red;">Debes escribir el nombre del conyuge</h4>
+    </div>
+  </div>
+  <div>
+    <label for="status">Status Anterior del Conyuge</label>
+    <input type="text" id="status" formControlName="statusAnterior"><br><br>
+  </div>
+  <button (click)="mostrarFormGroup()">Verificar!!!</button>
+</form>
+<h2>Datos de la propiedad del accionista</h2>
+<form action="" [formGroup]="propiedad">
+  <div>
+    <label for="nombrePropiedad">Nombre de la Propiedad</label>
+    <input type="text" id="nombrePropiedad" formControlName="nombrePropiedad">
+    <div *ngIf="!propiedad.controls.nombrePropiedad.valid && (propiedad.controls.nombrePropiedad.dirty || !propiedad.controls.nombrePropiedad.untouched)">
+      <h4 style="color: red;">Debes escribir el nombre de la propiedad</h4>
+    </div>
+  </div>
+  <div>
+    <label for="tipoPropiedad">Tipo de la Propiedad</label>
+    <input type="text" id="tipoPropiedad" formControlName="tipoPropiedad">
+    <div *ngIf="!propiedad.controls.tipoPropiedad.valid && (propiedad.controls.tipoPropiedad.dirty || !propiedad.controls.tipoPropiedad.untouched)">
+      <h4 style="color: red;">El tipo de propiedad debe tener minimo 3 caracteres</h4>
+    </div>
+  </div>
+  <div>
+    <label for="hipoteca">Hipoteca de la Propiedad</label>
+    <input type="text" id="hipoteca" formControlName="hipoteca">
+  </div>
+  <button (click)="mostrarFormBuilder()">Verificar Propiedad</button>
+</form>
+<h2>Datos de los hijos del accionista (si aplica)</h2>
+<form action="" [formGroup]="hijos">
+  <div formArrayName="nombreHijo">
+    <h3>Hijos (si tiene presionar el boton agregar)</h3>
+    <button (click)="addNombreHijos()">Agregar Hijo</button>
+
+    <div *ngFor="let hijoz of nombreHijo.controls; let i=index">
+      <label for="hijo-{{i}}">Nombre del hijo n° {{i+1}}</label>
+      <input type="text" id="hijo-{{i}}" [formControlName]="i">
+      <button (click)="mostrarHijo(hijoz)">este hijo</button>
+      <div *ngIf="!nombreHijo.controls[i].valid && (nombreHijo.controls[i].dirty || !nombreHijo.controls[i].untouched)">
+        <h4 style="color: red;">El nombre del hijo debe tener minimo 4 caracteres</h4>
+      </div>
+    </div>
+  </div>
+  <button (click)="mostrarFormArray()">Verificar Hijos</button>
+</form>
+

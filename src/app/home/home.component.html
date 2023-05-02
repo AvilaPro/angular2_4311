@@ -1,2 +1,14 @@
 <p>home works!</p>
-<a routerLink="/user-register">Registrarse</a>
+<a routerLink="/user-register">Registrarse</a><br>
+<a routerLink="/frg">Form Reactive Control Group</a><br>
+<a routerLink="/car"></a>
+<div>
+  <label for="compra">Informacion de compra: </label>
+  <input type="text" id="compra" [(ngModel)]="compra">
+</div>
+
+<hr><hr>
+
+<app-carrito-compra [datoCompra]="compra" (cambiarDatoDeCompra)="compra = $event"></app-carrito-compra>
+
+<!-- aws toolkit -->

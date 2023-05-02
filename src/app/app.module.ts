@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,16 +22,21 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormReactiveGroupComponent } from './form-reactive-group/form-reactive-group.component';
+import { CarritoCompraComponent } from './carrito-compra/carrito-compra.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    FormReactiveGroupComponent,
+    CarritoCompraComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MdbAccordionModule,
     MdbCarouselModule,

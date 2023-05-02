@@ -1,0 +1,12 @@
+<h3>Informacion de la compra</h3>
+<h4>La compra es: {{ datoCompra}}</h4>
+
+<div>
+  <label for="cambioEnHijoCompra">Input para cambiar el dato de compra en el hijo</label>
+  <input type="text" id="cambioEnHijoCompra" [(ngModel)]="datoCompra">
+</div>
+
+<div>
+  <p>Conocer el cambio en el hijo</p>
+  <button (click)="cambiarCompraEnHijo()">Compra editada en hijo</button>
+</div>
