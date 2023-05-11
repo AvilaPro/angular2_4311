@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-3" *ngFor="let per of personajes">
+      <img [src]="per.image" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Nombre: {{per.name}}</h5>
+        <p class="card-text text-success">Especie: {{per.species}}</p>
+        <p class="card-text text-primary">Status: {{per.status}}</p>
+        <p class="card-text text-danger-emphasis">Genero: {{per.gender}}</p>
+
+      </div>
+    </div>
+  </div>
+</div>

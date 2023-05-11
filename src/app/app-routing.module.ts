@@ -5,6 +5,8 @@ import { HomeComponent } from "./home/home.component";
 import { UserRegisterComponent } from "./user-register/user-register.component";
 import { FormReactiveGroupComponent } from './form-reactive-group/form-reactive-group.component';
 import { CarritoCompraComponent } from './carrito-compra/carrito-compra.component';
+import { HoraPremiumComponent } from "./hora-premium/hora-premium.component";
+import { HoraValidaGuard } from './guardians/hora-valida.guard';
 
 const routes: Routes = [
   {
@@ -22,6 +24,11 @@ const routes: Routes = [
   {
     path: 'car',
     component: CarritoCompraComponent
+  },
+  {
+    path: 'premium',
+    component: HoraPremiumComponent,
+    canActivate: [HoraValidaGuard]
   },
   {
     path: '',

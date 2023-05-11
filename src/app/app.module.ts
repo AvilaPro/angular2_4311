@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+//Otros Modules
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from "@angular/common/http";
+//Components
 import { AppComponent } from './app.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
+import { FormReactiveGroupComponent } from './form-reactive-group/form-reactive-group.component';
+import { CarritoCompraComponent } from './carrito-compra/carrito-compra.component';
+import { HoraPremiumComponent } from './hora-premium/hora-premium.component';
+
+//Modulos MDB
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
@@ -21,9 +30,9 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormReactiveGroupComponent } from './form-reactive-group/form-reactive-group.component';
-import { CarritoCompraComponent } from './carrito-compra/carrito-compra.component';
+
+//Services
+
 
 @NgModule({
   declarations: [
@@ -31,10 +40,13 @@ import { CarritoCompraComponent } from './carrito-compra/carrito-compra.componen
     UserRegisterComponent,
     HomeComponent,
     FormReactiveGroupComponent,
-    CarritoCompraComponent
+    CarritoCompraComponent,
+    HoraPremiumComponent
   ],
   imports: [
     BrowserModule,
+    // Colocar debajo del BrowserModule al HttpClientModule
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
