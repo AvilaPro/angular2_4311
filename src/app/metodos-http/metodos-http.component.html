@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h1>Usuarios traidos del Get</h1>
+    <div class="col-2" *ngFor="let user of respuestaDelGet" style="padding: 7px; border: solid black 2px; border-radius: 10px;">
+      <p>Nombre: {{user.name}}</p>
+      <p>Telefono: {{user.phone}}</p>
+      <p>Correo: {{user.email}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <h1>Respuesta del Post</h1>
+    <p>Repuesta: {{respuestaDelPost.title}}</p>
+    <p>Id: {{respuestaDelPost.id}}</p>
+    <p>Fecha: {{respuestaDelPost.createdAt | date}}</p>
+  </div>
+   <div class="row">
+    <h1>Respuesta del Put</h1>
+    <p>Titulo: {{respuestaDelPut.title}}</p>
+  </div>
+</div>

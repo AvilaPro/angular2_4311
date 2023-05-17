@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <h1>Listado de peliculas populares</h1>
+    <div class="card col-2" *ngFor="let peli of pelis" style="height: 60vh;">
+      <img class="card-img-top" [src]="images + '/w92' + peli.poster_path" alt="Card image cap" style="height: 50%;">
+      <div class="card-body">
+        <h5 class="card-title">{{peli.title}}</h5>
+        <p class="card-text text-truncate">{{peli.overview}}</p>
+        <p>Popularidad: {{peli.vote_average}} / 10</p>
+      </div>
+    </div>
+  </div>
+</div>
+

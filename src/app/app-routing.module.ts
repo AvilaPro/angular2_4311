@@ -7,6 +7,9 @@ import { FormReactiveGroupComponent } from './form-reactive-group/form-reactive-
 import { CarritoCompraComponent } from './carrito-compra/carrito-compra.component';
 import { HoraPremiumComponent } from "./hora-premium/hora-premium.component";
 import { HoraValidaGuard } from './guardians/hora-valida.guard';
+import { MetodosHttpComponent } from './metodos-http/metodos-http.component';
+import { PeliculasComponent } from './peliculas/peliculas.component';
+import { FakeLoginComponent } from './fake-login/fake-login.component';
 
 const routes: Routes = [
   {
@@ -29,6 +32,18 @@ const routes: Routes = [
     path: 'premium',
     component: HoraPremiumComponent,
     canActivate: [HoraValidaGuard]
+  },
+  {
+    path: 'http',
+    component: MetodosHttpComponent
+  },
+  {
+    path: 'peliculas',
+    component: PeliculasComponent
+  },
+  {
+    path: 'fakeLogin',
+    component: FakeLoginComponent
   },
   {
     path: '',

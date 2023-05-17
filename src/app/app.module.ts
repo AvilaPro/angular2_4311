@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 //Otros Modules
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 //Components
 import { AppComponent } from './app.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
@@ -30,8 +30,14 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import { MetodosHttpComponent } from './metodos-http/metodos-http.component';
+import { PeliculasComponent } from './peliculas/peliculas.component';
+import { FakeLoginComponent } from './fake-login/fake-login.component';
 
 //Services
+
+//Interceptors
+import { LoginErrorInterceptor } from './interceptors/login-error.interceptor';
 
 
 @NgModule({
@@ -41,7 +47,10 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
     HomeComponent,
     FormReactiveGroupComponent,
     CarritoCompraComponent,
-    HoraPremiumComponent
+    HoraPremiumComponent,
+    MetodosHttpComponent,
+    PeliculasComponent,
+    FakeLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,13 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
     MdbValidationModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoginErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
